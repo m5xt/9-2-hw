@@ -74,23 +74,41 @@ unicast_peer {
 ![alt text](https://github.com/m5xt/9-2-hw/blob/srlb-14/img/pic_10_01_2.png)
 
 2)
+
                         /etc/keepalived/keepalived.conf
+                        
 vrrp_instance test {
+
 state BACKUP
+
 interface ens38
+
 virtual_router_id 10
+
 priority 90
+
 advert_int 4
+
 authentication {
+
 auth_type PASS
+
 auth_pass 12345
+
 }
+
 unicast_peer {
+
 192.168.10.11
+
 }
+
 virtual_ipaddress {
+
 192.168.10.50/24 dev ens38 label ens37:vip
+
 }
+
 }
 
 
