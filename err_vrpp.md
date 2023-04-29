@@ -51,23 +51,41 @@ virtual_ipaddress {
 
 
 1)
+
                     /etc/keepalived/keepalived.conf
+                    
 vrrp_instance test {
+
 state MASTER
+
 interface ens37
+
 virtual_router_id 10
+
 priority 150
+
 advert_int 4
+
 authentication {
+
   auth_type PASS
+  
   auth_pass 12345
+  
   }
+  
 unicast_peer {
+
   192.168.10.12
+  
   }
+  
   virtual_ipaddress {
+  
   192.168.10.50/24 dev ens37 label ens37:vip
+  
   }
+  
 }
 
 
